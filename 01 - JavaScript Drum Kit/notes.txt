@@ -1,0 +1,3 @@
+http://keycode.info/
+
+Why does it work in the script tag but not in a js file?
