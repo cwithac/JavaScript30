@@ -87,6 +87,8 @@
 
     // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.  Otherwise will update the original reference.
 
+    JSON.parse(JSON.stringify(object)); //makes a string immedietly into an object, 'poor man's clone'
+
   </script>
 
 </body>
