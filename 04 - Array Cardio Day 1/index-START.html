@@ -31,28 +31,116 @@
 
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
+        //.filter will loop over every item in the arry, takes a function as a param
+
+        // const fifteen = inventors.filter(function(inventor){
+        //   if(inventor.year >= 1500 && inventor.year <= 1599) {
+        //     return true;
+        //   }
+        // });
+
+        //REFACTOR
+        // const fifteen = inventors.filter(inventor => inventor.year >= 1500 && inventor.year <= 1599)
+        // console.log(fifteen);
+        // console.table(fifteen);
 
     // Array.prototype.map()
     // 2. Give us an array of the inventors' first and last names
+      //.map takes in an array, returns a new array of the same length
+
+      // const fullNames = inventors.map(inventor => inventor.first + ' ' + inventor.last);
+
+      // REFACTOR
+      // const fullNames = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
+      // console.log(fullNames);
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
+      //.sort takes two items by returning 1 and -1
+
+        //function(a, b);
+        // const ordered = inventors.sort(function(firstPerson, secondPerson) {
+        //   if (firstPerson.year > secondPerson.year) {
+        //     return 1;
+        //   } else {
+        //     return -1;
+        //   }
+        // });
+        //
+        // console.table(ordered);
+
+        //REFACTOR
+          //ternary operator
+          //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
+        // const ordered = inventors.sort((a,b) => a.year > b.year ? 1 : -1);
+        // console.table(ordered)
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live?
+      //.reduce builds onto each item of the array
+      //Add , 0 to initalize total;
+      // const totalYears = inventors.reduce((total, inventor) => {
+      //   return total + (inventor.passed - inventor.year);
+      // }, 0);
+      //
+      // console.log(totalYears);
 
     // 5. Sort the inventors by years lived
 
+      // const oldest = inventors.sort(function(a, b){
+      //   const lastGuy = a.passed - a.year;
+      //   const nextGuy = b.passed - b.year;
+      //   // if (lastGuy > nextGuy) {
+      //   //   return -1;
+      //   // } else {
+      //   //   return 1;
+      //   // }
+      //REFACTOR
+      //   return lastGuy > nextGuy ? -1 : 1;
+      // });
+      // console.table(oldest);
+
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+    // Run in console on site
 
+      // const category = document.querySelector('.mw-category');
+      // // const category = document.querySelector('.mw-category a'); //without looking for sub query selector
+      // const links = Array.from(category.querySelectorAll('a'));
+      // //Array.from or [...] spread to turn node list into array to use .map method
+      // const de = links
+      //                 .map(link => link.textContent)
+      //                 .filter(streetName => streetName.includes('de'));
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
 
+      // const alpha = people.sort((lastOne, nextOne) => {
+      //   // const parts = lastOne.split(', ');
+      //   // console.log(parts);
+      //   //REFACTOR to split out of array into strings;
+      //   const [aLast, afirst] = lastOne.split(', ');
+      //   const [bLast, bFirst] = nextOne.split(', ');
+      //   return aLast > bLast ? 1 : -1;
+      // });
+      //
+      // console.log(alpha); //returns an array;
+
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+
+    // ,{} to initalize an empty object
+    // const transportation = data.reduce(function(obj, item){
+    //   //creates an initial entry at item: 0;
+    //   if(!obj[item]) {
+    //     obj[item] = 0;
+    //   }
+    //   obj[item] ++;
+    //   return obj;
+    // }, {});
+    //
+    // console.log(transportation);
 
   </script>
 </body>
