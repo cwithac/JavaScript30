@@ -43,6 +43,7 @@
   </div>
 
   <script>
+  //debounce recommended for scroll, slows down the number of check calls
     function debounce(func, wait = 20, immediate = true) {
       var timeout;
       return function() {
@@ -57,6 +58,26 @@
         if (callNow) func.apply(context, args);
       };
     }
+
+    const sliderImages = document.querySelectorAll('.slide-in');
+
+    function checkSlide(e) {
+      // console.log(e);
+      sliderImages.forEach(sliderImage => {
+        const slideInAt = (window.scrollY + window.innerHeight) - sliderImage.height / 2; //halway through image
+        const imageBottom = sliderImage.offsetTop + sliderImage.height; //bottom of image
+        const isHalfShown = slideInAt > sliderImage.offsetTop;
+        const isNotScrolledPast = window.scrollY < imageBottom;
+
+        if(isHalfShown && isNotScrolledPast) {
+          sliderImage.classList.add('active');
+        } else {
+          sliderImage.classList.remove('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', debounce(checkSlide));
 
   </script>
 
